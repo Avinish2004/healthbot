@@ -1,16 +1,40 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azure Health Bot Integration</title>
+    <title> Bot4u</title>
+    <style>
+        #webchat {
+            height: 500px;
+            width: 100%;
+            backgroud-color:lightskyblue;
+        }
+        body {
+            background-image: url('https://github.com/Avinish04/Health2U/blob/main/images/chatbot.jpg');
+            background-repeat: no-repeat;
+            background-size: cover; 
+            background-color: lightblue; 
+        }
+    </style>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
 </head>
 <body>
-    <h1>Azure Health Bot Integration</h1>
-    <iframe 
-        src="https://your-health-bot-url.azurewebsites.net/webchat?secret=8BTzzKxVS8Y.aIqLsYNg39CjkNerePhE9uVmtv-_kfV6lkmg9i-ONZA" 
-        style="width: 100%; height: 500px; border: none;">
-    </iframe>
+    <div id="webchat" role="main"></div>
+    <script>
+        const webChatSecret = "8BTzzKxVS8Y.aIqLsYNg39CjkNerePhE9uVmtv-_kfV6lkmg9i-ONZA";
+        window.WebChat.renderWebChat(
+            {
+                directLine: window.WebChat.createDirectLine({ token: webChatSecret }),
+                userID: 'YOUR_USER_ID',
+                username: 'YOUR_USERNAME',
+                locale: 'en-US',
+                styleOptions: {
+                    bubbleBackground: '#F4F4F4',
+                    bubbleFromUserBackground: '#F4F4F4'
+                }
+            },
+            document.getElementById('webchat')
+        );
+    </script>
 </body>
 </html>
